@@ -74,12 +74,16 @@ fun Dice(modifier: Modifier = Modifier) {
                         .pointerInput(Unit) {
                             detectTapGestures(
                                 onTap = {
-                                    // 單擊：產生 1 到 6 的隨機整數
+                                    // 單擊：隨機產生 1～6
                                     diceNumber = (1..6).random()
                                 },
                                 onDoubleTap = {
-                                    // 雙擊：重置為 0 (回到 dice0)
+                                    // 雙擊：重置為 0
                                     diceNumber = 0
+                                },
+                                onLongPress = {
+                                    // 長按：點數變成 6
+                                    diceNumber = 6
                                 }
                             )
                         }
